@@ -207,13 +207,13 @@ body {
 
 /* Author links styling */
 .authors a {
-    color: #007bff;
+    color: #9744B8;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .authors a:hover {
-    color: #0056b3;
+    color: #9744B8;
     text-decoration: underline;
 }
 
