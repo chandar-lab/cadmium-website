@@ -15,6 +15,28 @@ body {
     font-size: 18px;
 }
 
+.cadmium-text {
+    color: #9744B8;
+    font-weight: bold;
+}
+
+ul {
+    padding-left: 25px; /* Indents the entire list */
+}
+
+li {
+    margin-top: 12px; /* Adds space between each bullet point */
+    margin-bottom: 12px; /* Adds space between each bullet point */
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #f0f0f0;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
 .container {
     max-width: 1000px;
     margin: 0 auto;
@@ -217,6 +239,34 @@ body {
     text-decoration: underline;
 }
 
+/* Logos section */
+.logos-section {
+    margin: 60px 0 40px 0;
+    padding: 30px 0;
+    border-top: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+.logos-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.logo-image {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(20%);
+    transition: filter 0.3s ease;
+}
+
+.logo-image:hover {
+    filter: grayscale(0%);
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     .container {
@@ -263,6 +313,14 @@ body {
     .contact {
         font-size: 16px;
     }
+    
+    .logos-container {
+        gap: 20px;
+    }
+    
+    .logo-image {
+        height: 50px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -288,5 +346,13 @@ body {
     
     .contact {
         font-size: 14px;
+    }
+    
+    .logos-container {
+        gap: 15px;
+    }
+    
+    .logo-image {
+        height: 40px;
     }
 }
