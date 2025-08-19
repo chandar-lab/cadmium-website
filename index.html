@@ -119,6 +119,20 @@
             </div>
         </section>
 
+        <!-- BibTeX Section -->
+        <section class="bibtex-section" id="bibtex">
+            <h2 class="figure-title">BibTeX</h2>
+            <div class="code-block" role="region" aria-label="BibTeX citation">
+                <button class="copy-btn" type="button" aria-label="Copy BibTeX" data-copy-target="#bibtex-code">Copy</button>
+                <pre id="bibtex-code">@article{govindarajan2025cadmium,
+  title={CADmium: Fine-Tuning Code Language Models for Text-Driven Sequential CAD Design},
+  author={Govindarajan, Prashant and Baldelli, Davide and Pathak, Jay and Fournier, Quentin and Chandar, Sarath},
+  journal={arXiv preprint arXiv:2507.09792},
+  year={2025}
+}</pre>
+            </div>
+        </section>
+
         <!-- Logos Section -->
         <section class="logos-section">
             <div class="logos-container">
@@ -129,5 +143,40 @@
         </section>
 
     </div>
+    <script>
+        (function(){
+            function copyText(text){
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    return navigator.clipboard.writeText(text);
+                }
+                // Fallback
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                ta.style.position = 'fixed';
+                ta.style.opacity = '0';
+                document.body.appendChild(ta);
+                ta.focus();
+                ta.select();
+                try { document.execCommand('copy'); } catch(e) {}
+                document.body.removeChild(ta);
+                return Promise.resolve();
+            }
+
+            document.addEventListener('click', function(e){
+                const btn = e.target.closest('.copy-btn');
+                if(!btn) return;
+                const selector = btn.getAttribute('data-copy-target');
+                const target = selector ? document.querySelector(selector) : btn.parentElement.querySelector('pre');
+                if(!target) return;
+                const toCopy = target.innerText;
+                copyText(toCopy).then(() => {
+                    const original = btn.textContent;
+                    btn.textContent = 'Copied!';
+                    btn.classList.add('copied');
+                    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1500);
+                });
+            });
+        })();
+    </script>
 </body>
 </html>
